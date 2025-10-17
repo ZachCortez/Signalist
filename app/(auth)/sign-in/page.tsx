@@ -24,15 +24,15 @@ const SignIn = () => {
     });
 
     const onSubmit = async (data: SignInFormData) => {
-        try {
-            const result = await signInWithEmail(data);
-            if(result.success) router.push('/');
-        } catch (e) {
-            console.error(e);
-            toast.error('Sign in failed', {
-                description: e instanceof Error ? e.message : 'Failed to sign in.'
-            })
-        }
+        // try {
+        //     const result = await signInWithEmail(data);
+        //     if(result.success) router.push('/');
+        // } catch (e) {
+        //     console.error(e);
+        //     toast.error('Sign in failed', {
+        //         description: e instanceof Error ? e.message : 'Failed to sign in.'
+        //     })
+        // }
     }
 
     return (
@@ -46,7 +46,7 @@ const SignIn = () => {
                     placeholder="contact@email.com"
                     register={register}
                     error={errors.email}
-                    validation={{ required: 'Email is required', pattern: /^\w+@\w+\.\w+$/ }}
+                    validation={{ required: 'Email is required!', pattern: /^\w+@\w+\.\w+$/ }}
                 />
 
                 <InputField
@@ -56,7 +56,7 @@ const SignIn = () => {
                     type="password"
                     register={register}
                     error={errors.password}
-                    validation={{ required: 'Password is required', minLength: 8 }}
+                    validation={{ required: 'Password is required!', minLength: 8 }}
                 />
 
                 <Button type="submit" disabled={isSubmitting} className="yellow-btn w-full mt-5">
